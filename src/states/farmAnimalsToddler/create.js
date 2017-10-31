@@ -27,10 +27,12 @@ export default function create() {
   this.animals = this.game.add.group();
 
   animalData.forEach(({ key, text }) => {
-    const animal = this.animals.create(-1000, centerY, key);
+    const animal = this.animals.create(-1000, centerY, key, 0);
 
     animal.customParams = { text };
     animal.anchor.setTo(0.5);
+
+    animal.animations.add('animate', [0, 1, 2, 1, 0, 1], 3, false);
 
     enableClickEvents(animal);
     animal.events.onInputDown.add(this.animateAnimal, this);
