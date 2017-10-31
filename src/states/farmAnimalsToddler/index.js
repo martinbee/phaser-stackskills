@@ -1,13 +1,12 @@
-export default game => ({
+// can extract these methods into other files so long as this.object is
+// correctly set throughout code
+export default {
   preload() {
-    game.load.image('logo', './assets/images/phaser.png');
+    this.load.image('background', 'assets/farmAnimalsToddler/images/background.png');
   },
   create() {
-    const logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
-
-    logo.anchor.setTo(0.5, 0.5);
+    this.background = this.game.add.sprite(0, 0, 'background');
   },
   update() {
-
   },
-});
+};

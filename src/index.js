@@ -2,7 +2,7 @@ import 'pixi';
 import 'p2';
 import Phaser from 'phaser';
 
-import getFarmAnimalsToddlerState from './states/farmAnimalsToddler/index';
+import farmAnimalsToddlerState from './states/farmAnimalsToddler/index';
 
 // config
 const {
@@ -20,5 +20,5 @@ const entryPoint = GAME_ENTRY_POINT || '';
 // initialize game
 const game = new Phaser.Game(width, height, renderer, entryPoint);
 
-game.state.add('GameState', getFarmAnimalsToddlerState(game));
+game.state.add('GameState', farmAnimalsToddlerState);
 game.state.start('GameState');
