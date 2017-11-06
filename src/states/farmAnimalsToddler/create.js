@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
 
 const animalData = [
-  { key: 'chicken', text: 'CHICKEN' },
-  { key: 'horse', text: 'HORSE' },
-  { key: 'pig', text: 'PIG' },
-  { key: 'sheep', text: 'SHEEP' },
+  { key: 'chicken', text: 'CHICKEN', audio: 'chickenSound' },
+  { key: 'horse', text: 'HORSE', audio: 'horseSound' },
+  { key: 'pig', text: 'PIG', audio: 'pigSound' },
+  { key: 'sheep', text: 'SHEEP', audio: 'sheepSound' },
 ];
 
 const enableClickEvents = (object) => {
@@ -26,10 +26,14 @@ export default function create() {
 
   this.animals = this.game.add.group();
 
-  animalData.forEach(({ key, text }) => {
+  animalData.forEach(({ key, text, audio }) => {
     const animal = this.animals.create(-1000, centerY, key, 0);
 
-    animal.customParams = { text };
+    animal.customParams = {
+      text,
+      sound: this.game.add.audio(audio),
+    };
+
     animal.anchor.setTo(0.5);
 
     animal.animations.add('animate', [0, 1, 2, 1, 0, 1], 3, false);
