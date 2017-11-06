@@ -2,6 +2,7 @@ export default function switchAnimal(sprite) {
   if (this.isMoving) return false;
 
   this.isMoving = true;
+  this.animalText.visible = false;
 
   const {
     centerX,
@@ -31,6 +32,7 @@ export default function switchAnimal(sprite) {
   newAnimalMovement.to({ x: centerX }, 1000);
   newAnimalMovement.onComplete.add(() => {
     this.isMoving = false;
+    this.showText(this.currentAnimal);
   });
   newAnimalMovement.start();
 

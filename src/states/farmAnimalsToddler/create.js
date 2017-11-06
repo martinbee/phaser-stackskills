@@ -45,6 +45,9 @@ export default function create() {
   this.currentAnimal = this.animals.next();
   this.currentAnimal.position.set(centerX, centerY);
 
+  // show animal text
+  this.showText(this.currentAnimal);
+
   // left arrow
   this.leftArrow = this.game.add.sprite(60, centerY, 'arrow');
   this.leftArrow.anchor.setTo(0.5);
@@ -61,4 +64,4 @@ export default function create() {
 
   enableClickEvents(this.rightArrow);
   this.rightArrow.events.onInputDown.add(this.switchAnimal, this);
-};
+}
